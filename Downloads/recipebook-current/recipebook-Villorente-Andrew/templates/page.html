@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} {% endblock %}
+{% block content %}
+	{% if user.is_authenticated %}
+	<h1>Author: {{recipe.author_name}}
+	<form method="POST" action="{% url 'logout' %}">
+{% csrf_token %}
+{{ form.as_p }}
+<button type="submit">Logout</button>
+</form></h1>
+	<h1>{{recipe}} </h1>
+	<ul>
+		{% for ingredient in recipe.ingredients.all %}
+		<li>{{ ingredient.ingredient.name }} - {{ ingredient.quantity }} </li>
+		{% endfor %}
+	</ul>
+	{% else %}
+	<p>You are not logged in.<p>
+	{% endif %}
+{% endblock %}
