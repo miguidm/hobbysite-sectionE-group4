@@ -3,13 +3,13 @@
 {% block title %} {% endblock %}
 {% block content %}
 	{% if user.is_authenticated %}
-	<h1>Author: {{recipe.author_name}}
 	<form method="POST" action="{% url 'logout' %}">
 {% csrf_token %}
 {{ form.as_p }}
 <button type="submit">Logout</button>
 </form></h1>
-	<h1>{{recipe}} </h1>
+	<h2>You are viewing {{recipe}} </h2>
+	<h3>Author: {{recipe.author_name}}</h3>
 	<ul>
 		{% for ingredient in recipe.ingredients.all %}
 		<li>{{ ingredient.ingredient.name }} - {{ ingredient.quantity }} </li>

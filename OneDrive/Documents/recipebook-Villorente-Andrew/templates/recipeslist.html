@@ -11,7 +11,7 @@
 {% else %} 
 <a href="{% url 'login' %}">Login</a> 
 {% endif %}
-
+<h2> You are viewing Recipe List </h2>
 	<u1>
 		{% for recipe in object_list %}
 			<h3><a href="{{recipe.get_absolute_url}}">{{ recipe }}</a></h3>

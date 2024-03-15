@@ -3,12 +3,6 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from datetime import datetime    
 
-
-class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=60)
-    short_bio = models.TextField()
-
 class Ingredient(models.Model):
     name = models.CharField(max_length=60)
 
